@@ -24,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button settingButton = (Button) findViewById(R.id.buttonSettings);
+        settingButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+        public void onClick(View v){
+                goToSettingsActivity();
+            }
+        });
+
 
     }
 
@@ -52,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
     public void goToSecondActivity()
     {
         Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToSettingsActivity()
+    {
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 
