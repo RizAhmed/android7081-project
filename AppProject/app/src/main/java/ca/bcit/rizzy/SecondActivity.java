@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import ca.bcit.rizzy.helper.ApplicationAdapter;
+
 public class SecondActivity extends ListActivity {
     private PackageManager packageManager = null;
     private List<ApplicationInfo> applist = null;

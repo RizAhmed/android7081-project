@@ -1,4 +1,4 @@
-package ca.bcit.rizzy;
+package ca.bcit.rizzy.helper;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import ca.bcit.rizzy.R;
 
 public class ApplicationAdapter extends ArrayAdapter<ApplicationInfo> {
     private List<ApplicationInfo> appsList = null;
