@@ -2,6 +2,7 @@ package ca.bcit.rizzy;
 
 import android.app.ListActivity;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -141,7 +142,24 @@ public class SecondActivity extends ListActivity {
         super.onListItemClick(l, v, position, id);
 
         ApplicationInfo app = applist.get(position);
-        try {
+        try{
+            PackageInfo packageInfo = packageManager.getPackageInfo(app.packageName, PackageManager.GET_PERMISSIONS);
+            String[] requestedPermissions = packageInfo.requestedPermissions;
+
+            StringBuilder builder = new StringBuilder();
+            for(int i = 0; i < requestedPermissions.length; i++)
+            {
+                builder.append("" + requestedPermissions[i] + " ");
+            }
+
+            Toast.makeText(SecondActivity.this, builder, Toast.LENGTH_LONG ).show();
+        } catch (PackageManager.NameNotFoundException e)
+        {
+            Toast.makeText(SecondActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+
+        /*try {
             Intent intent = packageManager
                     .getLaunchIntentForPackage(app.packageName);
 
@@ -154,7 +172,7 @@ public class SecondActivity extends ListActivity {
         } catch (Exception e) {
             Toast.makeText(SecondActivity.this, e.getMessage(),
                     Toast.LENGTH_LONG).show();
-        }
+        }*/
     }
 
 
